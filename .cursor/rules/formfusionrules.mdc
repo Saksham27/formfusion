@@ -1,0 +1,155 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# FormFusion - Project Rules
+Description: Rules for the FormFusion form builder application
+Version: 1.0
+Type: Auto Attached
+Globs: **/*.ts **/*.tsx **/*.cs **/*.go
+Reference: ~/docs/FormFusion.md
+
+## IMPORTANT: SOURCE OF TRUTH
+ALWAYS READ and reference ~/docs/FormFusion.md before implementing any feature or making changes.
+After making changes, update FormFusion.md to reflect the current implementation status.
+FormFusion.md is the SINGLE SOURCE OF TRUTH for this project and must be consulted for all development decisions.
+
+## Project Overview
+
+FormFusion is a mid-market form builder solution that bridges the gap between simple, free tools and complex, expensive enterprise solutions. The platform focuses on providing AI-powered form optimization, enhanced collaboration features, true no-code advanced logic, and a seamless mobile experience.
+
+## Technology Stack
+
+The project uses a hybrid architecture with the following technologies:
+
+### Frontend
+- React with Next.js
+- TypeScript
+- Redux Toolkit + React Query for state management
+- Tailwind CSS with Aceternity UI components
+- Framer Motion for animations
+- React DnD for drag-and-drop functionality
+
+### Backend
+- ASP.NET Core (C#) for primary API
+- Entity Framework Core for ORM
+- SignalR for real-time functionality
+
+### Microservices
+- Go (Golang) for high-performance microservices
+- Gin web framework
+- GORM for database access
+
+### Infrastructure
+- PostgreSQL database
+- Redis for caching
+- Azure Blob Storage/AWS S3 for file storage
+- Docker for containerization
+- GitHub Actions for CI/CD
+
+## Implementation Guidelines
+
+### Frontend Guidelines
+
+- Use TypeScript for all frontend code
+- Create reusable components in `/components` directory
+- Keep components focused on a single responsibility
+- Use React Query for data fetching and caching
+- Implement proper loading and error states for all async operations
+- Follow Tailwind CSS class naming conventions
+- Use CSS modules for component-specific styles when needed
+- Implement responsive design for all UI components
+- Use proper semantic HTML elements
+
+### Backend Guidelines
+
+- Follow RESTful API conventions
+- Use async/await for all asynchronous operations
+- Implement proper error handling and logging
+- Use Entity Framework Core with repository pattern
+- Create DTOs for data transfer between layers
+- Implement clean architecture principles
+- Apply SOLID principles in code design
+- Use dependency injection for services
+- Implement proper validation for all inputs
+
+### Database Guidelines
+
+- Follow the exact schema defined in technical documentation
+- Use migrations for database changes
+- Create indexes for frequently queried fields
+- Implement proper foreign key relationships
+- Use UUIDs for primary keys
+- Store timestamps in UTC
+- Use JSON/JSONB for flexible data structures
+
+### Security Guidelines
+
+- Implement JWT for authentication
+- Add support for two-factor authentication
+- Validate all user inputs
+- Implement proper authorization checks
+- Use HTTPS for all communications
+- Store passwords using secure hashing
+- Implement rate limiting for sensitive endpoints
+- Follow OWASP security best practices
+
+## File Structure
+
+Adhere to the following file structure when implementing features:
+
+```
+/formfusion
+  /frontend
+    /src
+      /components     - Reusable UI components
+      /pages          - Next.js pages
+      /hooks          - Custom React hooks
+      /styles         - Global styles
+      /lib            - Utility functions
+      /store          - Redux store
+      /services       - API service calls
+      /types          - TypeScript type definitions
+  
+  /backend
+    /FormFusion.API         - Main API endpoints
+    /FormFusion.Core        - Domain models and interfaces
+    /FormFusion.Data        - Data access and migrations
+    /FormFusion.Services    - Business logic and services
+  
+  /microservices
+    /realtime               - Collaboration service
+    /pdf-generator          - PDF generation service
+    /analytics              - Analytics processing service
+```
+
+## Implementation Status
+
+When implementing features, check the technical specification for current implementation status. Do not assume features are implemented that aren't marked as complete.
+
+## Common Mistakes to Avoid
+
+- Don't reference non-existent files or components
+- Don't assume implementations that aren't documented
+- Don't change database schema without updating migrations
+- Don't implement features that aren't in the technical specification
+- Don't use technologies not specified in the stack
+- Avoid overengineering simple solutions
+- Don't create monolithic components or services
+
+## Rules for Implementation
+
+1. Always consider performance implications of implementations
+2. Write unit tests for all critical business logic
+3. Document all public APIs and complex functions
+4. Keep components and services focused on a single responsibility
+5. Follow the established coding style and conventions
+6. Consider security in all implementations
+7. Use proper error handling and logging
+8. Consider accessibility in UI implementations
+9. Implement proper validation for all user inputs
+
+
+
+10. Follow the implementation roadmap in the technical specification
