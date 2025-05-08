@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/dotnet/sdk:7.0
+
+WORKDIR /app
+
+# Copy csproj and restore dependencies
+COPY *.csproj ./
+RUN dotnet restore
+
+# Set environment variables
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS=http://+:5000
+
+EXPOSE 5000
+
+# Using dotnet watch for hot reload
+CMD ["dotnet", "watch", "run", "--urls", "http://0.0.0.0:5000"]

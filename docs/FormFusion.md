@@ -55,6 +55,330 @@ FormFusion is a mid-market form builder solution that bridges the gap between si
 └─────────────────┘     └───────────────────────┘     └────────────────────┘
 ```
 
+## UI/UX Design Specification
+
+### Design System Foundation
+
+#### Typography
+- **Primary Font**: Inter (modern, clean sans-serif that works well for both UI and form content)
+- **Heading Sizes**:
+  - H1: 32px/40px, Semi-Bold
+  - H2: 24px/32px, Semi-Bold
+  - H3: 20px/28px, Semi-Bold
+  - H4: 18px/24px, Medium
+- **Body Text**:
+  - Regular: 16px/24px
+  - Small: 14px/20px
+  - Caption: 12px/16px
+
+#### Color Palette
+- **Primary Colors**:
+  - Primary: #3B82F6 (bright blue, modern and trustworthy)
+  - Primary Dark: #2563EB
+  - Primary Light: #93C5FD
+- **Secondary Colors**:
+  - Secondary: #8B5CF6 (purple, for accents and highlights)
+  - Secondary Dark: #7C3AED
+  - Secondary Light: #C4B5FD
+- **Neutral Colors**:
+  - White: #FFFFFF
+  - Gray-50: #F9FAFB
+  - Gray-100: #F3F4F6
+  - Gray-200: #E5E7EB
+  - Gray-300: #D1D5DB
+  - Gray-400: #9CA3AF
+  - Gray-500: #6B7280
+  - Gray-600: #4B5563
+  - Gray-700: #374151
+  - Gray-800: #1F2937
+  - Gray-900: #111827
+  - Black: #000000
+- **Semantic Colors**:
+  - Success: #10B981
+  - Warning: #FBBF24
+  - Error: #EF4444
+  - Info: #60A5FA
+
+#### Component Styling
+- **Border Radius**: 
+  - Small: 4px
+  - Medium: 8px
+  - Large: 12px
+  - XL: 16px
+  - Full: 9999px (for pills and circles)
+- **Shadows**:
+  - Shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05)
+  - Shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)
+  - Shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
+  - Shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
+- **Transitions**: 
+  - Default: 150ms ease
+  - Smooth: 300ms ease
+
+#### Spacing System
+- 4px base unit with scale:
+  - 0: 0px
+  - 1: 4px
+  - 2: 8px
+  - 3: 12px
+  - 4: 16px
+  - 5: 20px
+  - 6: 24px
+  - 8: 32px
+  - 10: 40px
+  - 12: 48px
+  - 16: 64px
+  - 20: 80px
+  - 24: 96px
+
+### Key UI Components
+
+#### Buttons
+- **Primary Button**: Filled blue, 16px padding, 8px border radius
+- **Secondary Button**: Outlined with blue border, transparent background
+- **Tertiary Button**: No border, blue text
+- **Danger Button**: Red fill for destructive actions
+- **Icon Button**: Circle with icon, no text
+- **Button Sizes**: Small, Medium (default), Large
+
+#### Form Elements
+- **Text Input**: Clean border, subtle shadow on focus
+- **Dropdown**: Custom styled with smooth animation
+- **Checkbox**: Custom styled with animation
+- **Radio Button**: Custom styled with animation
+- **Toggle Switch**: Animated with sliding effect
+- **Date Picker**: Custom calendar dropdown
+- **File Upload**: Area with dashed border and upload icon
+- **Slider**: Custom track and thumb styles
+- **Text Area**: Expandable with character count
+- **Rating Element**: Star or number rating system
+
+#### Cards
+- **Standard Card**: White background, subtle shadow
+- **Selected Card**: With highlighted border
+- **Interactive Card**: With hover state
+- **Draggable Card**: With grab handle and drop indicators
+
+#### Navigation
+- **Sidebar**: Dark mode with icon and text
+- **Tabs**: Underlined active state
+- **Breadcrumbs**: With separators and hover states
+- **Pagination**: With current, previous, next indicators
+- **Stepper**: For multi-step processes
+
+#### Feedback Elements
+- **Toast Notifications**: Slide in from top-right
+- **Modal Dialogs**: With backdrop and animations
+- **Progress Indicators**: Linear and circular
+- **Empty States**: With illustrations
+- **Error States**: For form validation
+
+### Key Screens
+
+#### 1. Landing Page
+
+**Hero Section**:
+- Clean, modern hero with product screenshot
+- Headline: "Powerful Forms Without the Complexity"
+- Subheading: "The intelligent form builder for modern teams"
+- CTA buttons: "Start Free Trial" and "See Demo"
+- Visual showing form being created and responses flowing in
+
+**Features Section**:
+- 3-column layout highlighting key differentiators:
+  - AI-Powered Optimization
+  - Team Collaboration
+  - No-Code Logic Builder
+
+**Testimonials Section**:
+- Card-based layout with customer quotes
+- Company logos for social proof
+
+**Pricing Section**:
+- 3 pricing tiers with feature comparison
+- Highlighted recommended plan
+
+**Footer**:
+- Links to resources, support, social media
+- Newsletter signup
+
+#### 2. Dashboard
+
+**Layout**:
+- Left sidebar navigation with icons and labels
+- Top header with search, notifications, and user menu
+- Main content area with cards
+
+**Content**:
+- Welcome message with user name
+- Quick stats: form views, submissions, completion rate
+- Recent forms grid (4 columns on desktop)
+- Activity feed showing recent submissions and team actions
+- Quick actions: "Create New Form", "Import Form", "Use Template"
+
+**Form Card Elements**:
+- Form title and description
+- Thumbnail preview
+- Submission count and last activity
+- Quick action menu (edit, share, duplicate, delete)
+
+#### 3. Form Builder
+
+**Three-Panel Layout**:
+1. **Left Panel - Element Palette**:
+   - Categorized form elements (Basic, Advanced, Layout)
+   - Search bar to find elements
+   - Drag handle indicator on each element
+   - Collapsible to maximize canvas space
+
+2. **Center Panel - Canvas**:
+   - Form preview with drag and drop zones
+   - Section dividers with layout controls
+   - Page navigation for multi-page forms
+   - Hover states showing drag handles and edit controls
+   - Empty state prompts for first-time users
+
+3. **Right Panel - Properties Editor**:
+   - Dynamic properties based on selected element
+   - Tabs for different property categories:
+     - Basic (label, required, etc.)
+     - Appearance (style, size, etc.)
+     - Validation (rules, messages, etc.)
+     - Logic (conditional display, etc.)
+   - Collapsible sections within tabs
+
+**Top Toolbar**:
+- Form title (editable)
+- Undo/Redo buttons
+- Save status indicator
+- Preview button
+- Publish button
+- Settings dropdown
+- Share button
+
+**Bottom Bar**:
+- Page navigation for multi-page forms
+- Zoom controls
+- Device preview toggle (desktop/tablet/mobile)
+
+#### 4. Logic Builder
+
+**Visual Logic Interface**:
+- Condition builder with "if/then" blocks
+- Dropdown selectors for fields, operators, and values
+- "Add Condition" and "Add Condition Group" buttons
+- Visual indicators for AND/OR logic
+- Action selector (show/hide, skip to, etc.)
+- Target selector for affected elements
+
+**Preview Panel**:
+- Real-time preview of logic results
+- Test mode for trying different input values
+
+#### 5. Theme Customizer
+
+**Layout**:
+- Left side: Controls and options
+- Right side: Real-time preview
+
+**Controls**:
+- Color pickers for primary, background, text colors
+- Font selector with preview
+- Spacing controls with visual indicators
+- Style presets (Modern, Classic, Playful, etc.)
+- Custom CSS option (for advanced users)
+
+**Preview**:
+- Live form preview showing changes
+- Device toggle for responsive testing
+
+#### 6. Form Analytics Dashboard
+
+**Overview Section**:
+- Key metrics cards (views, starts, completions, conversion rate)
+- Trend graph showing performance over time
+- Completion rate gauge
+
+**Submission Breakdown**:
+- Bar charts showing answers to key questions
+- Demographic data visualization (if collected)
+- Device and browser breakdown
+
+**User Journey Map**:
+- Visual flow showing where users drop off
+- Time spent on each question
+- Heatmap of engagement
+
+**AI Insights Panel**:
+- Automated suggestions for form improvement
+- Comparison to similar forms
+- Predicted impact of suggested changes
+
+#### 7. Collaboration Interface
+
+**Team Members Panel**:
+- List of team members with roles
+- Invite new member button
+- Permission management controls
+
+**Activity Feed**:
+- Timeline of form edits and comments
+- Filter by user or action type
+
+**Comment System**:
+- Comment bubbles attached to specific elements
+- Thread view for discussions
+- Resolution status for comment threads
+
+### Mobile Adaptations
+
+#### Mobile Dashboard
+- Stacked card layout (1 column)
+- Bottom navigation instead of sidebar
+- Collapsible sections for space efficiency
+
+#### Mobile Form Builder
+- Single panel view with bottom sheet for properties
+- Element palette as modal overlay
+- Simplified controls optimized for touch
+
+### Animation Specifications
+
+#### Micro-interactions
+- Element drag and drop with physics-based animations
+- Property panel smooth slide transitions
+- Button hover and click effects
+- Toggle and switch animations
+
+#### Page Transitions
+- Dashboard to Form Builder: Slide and fade
+- Between form pages: Fade or slide based on setting
+- Modal open/close: Fade with slight scale
+
+#### Loading States
+- Skeleton screens instead of spinners where possible
+- Subtle pulse animations for loading content
+- Progress bars for longer operations
+
+### Implementation Notes
+
+**Aceternity UI Components**:
+- Use Aceternity's animated card components for form elements
+- Implement Aceternity's hover effects for interactive elements
+- Utilize their magnetic buttons for primary actions
+- Apply their sliding animations for panel transitions
+
+**React Components Structure**:
+- Create a component library page in Figma
+- Document component variants and states
+- Include responsive breakpoints
+- Add interaction specifications
+
+**Design Tokens**:
+- Document all tokens for developer handoff
+- Include dark mode variants
+- Provide accessibility notes for each component
+
 ## Database Schema
 
 ### Users Table
@@ -134,6 +458,7 @@ CREATE TABLE Forms (
     IsTemplate BOOLEAN DEFAULT FALSE,
     SubmissionCount INT DEFAULT 0,
     LastSubmissionAt TIMESTAMP,
+    CoverImage VARCHAR(255),
     CONSTRAINT FK_Forms_Users FOREIGN KEY (OwnerId) REFERENCES Users(Id),
     CONSTRAINT FK_Forms_Teams FOREIGN KEY (TeamId) REFERENCES Teams(Id)
 );
@@ -168,8 +493,42 @@ CREATE TABLE FormElements (
     Conditional JSONB,
     Order INT NOT NULL,
     ParentId UUID,
+    SectionId UUID,
     CONSTRAINT FK_FormElements_Forms FOREIGN KEY (FormId) REFERENCES Forms(Id),
     CONSTRAINT FK_FormElements_Parent FOREIGN KEY (ParentId) REFERENCES FormElements(Id)
+);
+```
+
+### FormSections Table
+```sql
+CREATE TABLE FormSections (
+    Id UUID PRIMARY KEY,
+    FormId UUID NOT NULL,
+    Version INT NOT NULL,
+    Title VARCHAR(255),
+    Description TEXT,
+    Columns INT DEFAULT 1,
+    Order INT NOT NULL,
+    Conditional JSONB,
+    BackgroundColor VARCHAR(50),
+    BorderRadius VARCHAR(20),
+    PageId UUID,
+    CONSTRAINT FK_FormSections_Forms FOREIGN KEY (FormId) REFERENCES Forms(Id),
+    CONSTRAINT FK_FormSections_Pages FOREIGN KEY (PageId) REFERENCES FormPages(Id)
+);
+```
+
+### FormPages Table
+```sql
+CREATE TABLE FormPages (
+    Id UUID PRIMARY KEY,
+    FormId UUID NOT NULL,
+    Version INT NOT NULL,
+    Title VARCHAR(255),
+    Description TEXT,
+    Order INT NOT NULL,
+    Conditional JSONB,
+    CONSTRAINT FK_FormPages_Forms FOREIGN KEY (FormId) REFERENCES Forms(Id)
 );
 ```
 
@@ -184,6 +543,7 @@ CREATE TABLE FormSubmissions (
     UserAgent TEXT,
     Status VARCHAR(50) DEFAULT 'completed',
     CompletionTime INT, -- in seconds
+    Score FLOAT,
     CONSTRAINT FK_FormSubmissions_Forms FOREIGN KEY (FormId) REFERENCES Forms(Id)
 );
 ```
@@ -228,6 +588,8 @@ CREATE TABLE FormIntegrations (
     UpdatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     LastExecutedAt TIMESTAMP,
     Status VARCHAR(50) DEFAULT 'active',
+    TriggerOn VARCHAR(50) DEFAULT 'submission',
+    Condition JSONB,
     CONSTRAINT FK_FormIntegrations_Forms FOREIGN KEY (FormId) REFERENCES Forms(Id)
 );
 ```
@@ -242,8 +604,28 @@ CREATE TABLE FormAnalytics (
     Starts INT DEFAULT 0,
     Completions INT DEFAULT 0,
     AverageCompletionTime INT, -- in seconds
+    AbandonmentRate FLOAT,
+    ConversionRate FLOAT,
     CONSTRAINT FK_FormAnalytics_Forms FOREIGN KEY (FormId) REFERENCES Forms(Id),
     CONSTRAINT UQ_FormAnalytics_FormDate UNIQUE (FormId, Date)
+);
+```
+
+### PaymentTransactions Table
+```sql
+CREATE TABLE PaymentTransactions (
+    Id UUID PRIMARY KEY,
+    FormId UUID NOT NULL,
+    SubmissionId UUID NOT NULL,
+    Amount DECIMAL(10,2) NOT NULL,
+    Currency VARCHAR(10) NOT NULL,
+    Status VARCHAR(50) NOT NULL,
+    Provider VARCHAR(50) NOT NULL,
+    TransactionId VARCHAR(255) NOT NULL,
+    CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT FK_PaymentTransactions_Forms FOREIGN KEY (FormId) REFERENCES Forms(Id),
+    CONSTRAINT FK_PaymentTransactions_Submissions FOREIGN KEY (SubmissionId) REFERENCES FormSubmissions(Id)
 );
 ```
 
@@ -253,11 +635,199 @@ CREATE TABLE FormAnalytics (
 - User can own multiple Forms
 - Team can own multiple Forms
 - Form has multiple FormElements
+- Form has multiple FormSections
+- FormSection has multiple FormElements
+- Form has multiple FormPages
+- FormPage has multiple FormSections
 - Form has multiple FormSubmissions
 - FormSubmission has multiple SubmissionValues
 - User can be part of multiple Teams (through TeamMembers)
 - Form can be shared with multiple Users (through FormSharing)
 - Form can have multiple Integrations (through FormIntegrations)
+- Form can have multiple PaymentTransactions
+
+## TypeScript Types
+
+### Form Types
+
+```typescript
+export interface Form {
+  id: string;
+  title: string;
+  description?: string;
+  ownerId?: string;
+  teamId?: string;
+  isPublished: boolean;
+  publishedVersion?: number;
+  currentVersion: number;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt?: Date;
+  settings: FormSettings;
+  theme: FormTheme;
+  isTemplate: boolean;
+  submissionCount: number;
+  lastSubmissionAt?: Date;
+  coverImage?: string;
+}
+
+export interface FormVersion {
+  id: string;
+  formId: string;
+  version: number;
+  createdAt: Date;
+  createdBy?: string;
+  structure: FormStructure;
+}
+
+export interface FormStructure {
+  elements: FormElement[];
+  sections: FormSection[];
+  pages: FormPage[];
+}
+
+export interface FormPage {
+  id: string;
+  title: string;
+  description?: string;
+  order: number;
+  sections: string[]; // Array of section IDs
+  conditional?: FormElementConditional;
+}
+
+export interface FormSection {
+  id: string;
+  title?: string;
+  description?: string;
+  columns: number;
+  order: number;
+  elements: string[]; // Element IDs
+  conditional?: FormElementConditional;
+  backgroundColor?: string;
+  borderRadius?: string;
+  pageId?: string;
+}
+
+export interface FormElement {
+  id: string;
+  formId: string;
+  version: number;
+  type: FormElementType;
+  label: string;
+  required: boolean;
+  properties: FormElementProperties;
+  validation: FormElementValidation;
+  conditional?: FormElementConditional;
+  order: number;
+  parentId?: string;
+  sectionId?: string;
+}
+
+export type FormElementType = 
+  | 'text' | 'email' | 'number' | 'textarea'
+  | 'select' | 'checkbox' | 'radio' | 'date' | 'file'
+  | 'section' | 'page'
+  | 'rating' | 'nps' | 'matrix' | 'signature'
+  | 'payment' | 'appointment' | 'address'
+  | 'divider' | 'richtext' | 'image' | 'video'
+  | 'calculation' | 'hidden' | 'phone' | 'url';
+
+export interface FormElementProperties {
+  placeholder?: string;
+  defaultValue?: string;
+  options?: string[];
+  min?: number;
+  max?: number;
+  step?: number;
+  rows?: number;
+  accept?: string;
+  multiple?: boolean;
+  columns?: number; // For multi-column layout
+  alignment?: 'left' | 'center' | 'right';
+  mediaUrl?: string; // For image/video elements
+  ratingScale?: number; // 5, 10, etc.
+  currencyCode?: string; // For payment fields
+  calculationFormula?: string; // For calculated fields
+  width?: string; // For controlling element width
+  buttonText?: string; // For file upload, payment buttons
+  autoComplete?: boolean; // For address fields
+  matrixRows?: string[];
+  matrixColumns?: string[];
+}
+
+export interface FormElementValidation {
+  required?: boolean;
+  minLength?: number;
+  maxLength?: number;
+  pattern?: string;
+  min?: number;
+  max?: number;
+  custom?: string;
+  errorMessage?: string;
+}
+
+export interface FormElementConditional {
+  conditions: Array<{
+    field: string;
+    operator: 'equals' | 'notEquals' | 'contains' | 'greaterThan' | 'lessThan' | 'isEmpty' | 'isNotEmpty';
+    value: string | number | boolean;
+  }>;
+  logicType: 'and' | 'or';
+  action: 'show' | 'hide' | 'require' | 'skip' | 'jump';
+  target?: string; // Page or element ID for jump action
+}
+
+export interface FormSettings {
+  allowMultipleSubmissions: boolean;
+  showProgressBar: boolean;
+  showPageNumbers: boolean;
+  submitButtonText: string;
+  successMessage: string;
+  redirectUrl?: string;
+  captchaEnabled: boolean;
+  storeResponses: boolean;
+  notificationEmails?: string[];
+  autoResponseEmail?: {
+    enabled: boolean;
+    subject: string;
+    message: string;
+    includeResponses: boolean;
+  };
+  scoring?: {
+    enabled: boolean;
+    passScore?: number;
+    showScoreToRespondent: boolean;
+  };
+}
+
+export interface FormTheme {
+  primaryColor: string;
+  secondaryColor: string;
+  fontFamily: string;
+  fontSize: string;
+  borderRadius: string;
+  spacing: string;
+  coverImage?: string;
+  questionAnimation?: 'fade' | 'slide' | 'none';
+  customCSS?: string;
+  progressStyle?: 'bar' | 'dots' | 'numbers' | 'none';
+  cardStyle?: 'flat' | 'shadow' | 'bordered';
+  buttonStyle?: 'solid' | 'outline' | 'text';
+}
+
+export interface FormIntegration {
+  id: string;
+  formId: string;
+  type: 'zapier' | 'webhook' | 'email' | 'google_sheets' | 'crm' | 'payment_processor';
+  config: Record<string, any>;
+  createdAt: Date;
+  updatedAt: Date;
+  lastExecutedAt?: Date;
+  status: 'active' | 'inactive' | 'error';
+  triggerOn: 'submission' | 'specific_answer';
+  condition?: FormElementConditional;
+}
+```
 
 ## API Endpoints
 
@@ -288,6 +858,22 @@ CREATE TABLE FormAnalytics (
 - `GET /api/forms/{id}/versions/{version}` - Get specific form version
 - `POST /api/forms/{id}/publish` - Publish form
 - `POST /api/forms/{id}/unpublish` - Unpublish form
+
+### Form Pages
+- `GET /api/forms/{formId}/pages` - Get all pages for a form
+- `POST /api/forms/{formId}/pages` - Create new page
+- `GET /api/forms/{formId}/pages/{id}` - Get page by ID
+- `PUT /api/forms/{formId}/pages/{id}` - Update page
+- `DELETE /api/forms/{formId}/pages/{id}` - Delete page
+- `PUT /api/forms/{formId}/pages/reorder` - Reorder pages
+
+### Form Sections
+- `GET /api/forms/{formId}/sections` - Get all sections for a form
+- `POST /api/forms/{formId}/sections` - Create new section
+- `GET /api/forms/{formId}/sections/{id}` - Get section by ID
+- `PUT /api/forms/{formId}/sections/{id}` - Update section
+- `DELETE /api/forms/{formId}/sections/{id}` - Delete section
+- `PUT /api/forms/{formId}/sections/reorder` - Reorder sections
 
 ### Form Elements
 - `GET /api/forms/{formId}/elements` - Get all elements for a form
@@ -335,6 +921,12 @@ CREATE TABLE FormAnalytics (
 - `GET /api/forms/{formId}/analytics/views` - Get view analytics
 - `GET /api/forms/{formId}/analytics/completions` - Get completion rate analytics
 - `GET /api/forms/{formId}/analytics/time` - Get completion time analytics
+- `GET /api/forms/{formId}/analytics/dropoff` - Get dropoff analytics
+
+### Payments
+- `GET /api/forms/{formId}/payments` - Get payment transactions for a form
+- `POST /api/forms/{formId}/payments/setup` - Set up payment integration
+- `GET /api/forms/{formId}/payments/{id}` - Get payment transaction details
 
 ## Frontend Component Structure
 
@@ -359,6 +951,11 @@ CREATE TABLE FormAnalytics (
 - `PropertyEditor` - Element configuration panel
 - `LogicBuilder` - Conditional logic editor
 - `PreviewModal` - Form preview popup
+- `SectionManager` - Manage form sections and layout
+- `PageManager` - Manage multi-page forms
+- `SettingsPanel` - Form settings configuration panel
+- `ThemeCustomizer` - Form theme and styling customization
+- `IntegrationManager` - Configure third-party integrations
 
 ### Dashboard Components
 - `FormsList` - List of user's forms
@@ -366,6 +963,7 @@ CREATE TABLE FormAnalytics (
 - `AnalyticsSummary` - Overview of form performance
 - `RecentSubmissions` - Recent form submissions
 - `FormFilters` - Filter and search forms
+- `TeamAccess` - Team collaboration management
 
 ### Form View Components
 - `FormRenderer` - Renders the form for submission
@@ -373,49 +971,79 @@ CREATE TABLE FormAnalytics (
 - `ProgressBar` - Shows multi-page form progress
 - `ValidationErrors` - Displays form validation errors
 - `SubmissionSuccess` - Success page after form submission
+- `PaymentProcessor` - Handles payment form elements
+- `ConditionalDisplay` - Handles showing/hiding elements based on logic
+
+## Form Creation Approach
+
+Based on market research and user pain points analysis, FormFusion will implement a hybrid approach to form creation that combines multiple methods:
+
+### 1. Primary Interface: Enhanced Drag and Drop
+
+- **Modern Visual Builder**: Implement an intuitive drag and drop interface as the primary form creation method
+- **Fluid Interactions**: Use Aceternity UI components to create smooth, physics-based animations for drag and drop operations
+- **Grid/Section System**: Provide a robust layout system with customizable columns and sections
+- **Visual Cues**: Clear drop zones, alignment guides, and visual feedback during element manipulation
+- **Contextual Controls**: Element-specific controls that appear on hover/selection
+- **Responsive Preview**: Real-time responsive design preview across device sizes
+
+### 2. Secondary Interface: Text-Based Quick Entry
+
+- **Text Editor Mode**: Provide an alternative text editor style interface similar to Tally.so
+- **Mode Switching**: Allow seamless switching between visual and text modes
+- **Keyboard Shortcuts**: Extensive keyboard shortcuts for power users
+- **Quick Commands**: Support for slash commands to quickly add and configure elements
+- **Markdown Support**: Allow markdown syntax for formatting descriptions and labels
+- **Bulk Editing**: Support for editing multiple elements simultaneously in text mode
+
+### 3. Template System with AI Enhancement
+
+- **Smart Templates**: AI-powered suggestions based on form purpose and industry
+- **Template Library**: Extensive collection of pre-built templates for common scenarios
+- **Template Customization**: Modify templates through both visual and text interfaces
+- **Sectional Templates**: Reusable section templates that can be added to any form
+- **AI Optimization**: Intelligent suggestions for improving form layouts and questions
+- **Industry-Specific Templates**: Specialized templates for different verticals (healthcare, education, etc.)
+
+### 4. Collaborative Creation
+
+- **Real-time Co-editing**: Multiple team members can work on a form simultaneously
+- **Comments and Suggestions**: Leave feedback directly on form elements
+- **Version History**: Track changes and restore previous versions
+- **Role-based Access**: Different permissions for different team members
+- **Approval Workflows**: Multi-step approval process for form publication
+
+### Benefits of This Hybrid Approach
+
+- **Addresses diverse user preferences**: Different users can work in their preferred style
+- **Balances simplicity and power**: Easy for beginners but powerful enough for experts
+- **Improves efficiency**: Provides the most efficient interface for each task
+- **Enhances collaboration**: Supports team-based form development workflows
+- **Leverages AI capabilities**: Uses artificial intelligence to improve form quality
+
+### Implementation Considerations
+
+- **Consistent Data Model**: Regardless of creation method, all interfaces must update the same underlying form model
+- **Synchronized Views**: Changes in one interface should immediately reflect in others
+- **Performance Optimization**: Implement virtualization for large forms and selective rendering
+- **Accessibility Support**: Ensure keyboard navigation works well for the drag and drop interface
+- **Progressive Enhancement**: Core functionality should work without advanced features
+
+This hybrid approach directly addresses key pain points identified in market research:
+- **Design limitations**: Solved with better layout controls and visual customization
+- **Complex interfaces**: Mitigated by offering multiple entry methods for different user preferences
+- **Technical frustrations**: Simplified by making complex logic creation more intuitive
 
 ## Development Status
 
-### Planned Features
-- [ ] Project structure and setup
-- [ ] Database schema design
-- [ ] User authentication (backend)
-- [ ] User authentication (frontend)
-- [ ] Form CRUD operations (backend)
-- [ ] Form CRUD operations (frontend)
-- [ ] Form builder UI components
-- [ ] Element drag-and-drop functionality
-- [ ] Property editor for elements
-- [ ] Form renderer for submissions
-- [ ] Form submission handling
-- [ ] Form analytics (basic)
-- [ ] Team management
-- [ ] User settings
-- [ ] Form sharing
-- [ ] Conditional logic builder
-- [ ] Form versioning
-- [ ] Form templates
-- [ ] Submission exports
+### Completed Features
 
-### Phase 1: Core Platform Features
-- [ ] AI-powered form optimization
-- [ ] Real-time collaboration
-- [ ] Advanced analytics
-- [ ] Integration ecosystem
-- [ ] Mobile app for form management
-- [ ] PDF generation and document workflows
 
-### Phase 2: Extended Features
-- [ ] Localization/internationalization support for multilingual forms
-- [ ] Accessibility compliance features (WCAG standards)
-- [ ] Custom themes/white labeling
-- [ ] Offline form submission support
-- [ ] Data migration tools for users coming from other platforms
-- [ ] Enterprise SSO integration
-- [ ] Custom notification workflows for form submissions
-- [ ] Advanced spam protection
-- [ ] GDPR/data privacy compliance tools
-- [ ] Custom API endpoints for client embedding
+### In Progress
+
+
+### Pending Features
+
 
 ## Implementation Roadmap
 
@@ -426,23 +1054,26 @@ CREATE TABLE FormAnalytics (
 - Form management dashboard
 - Basic analytics
 
-### Phase 2: Team Collaboration
-- Team management
-- Form sharing and permissions
-- Commenting and feedback
-- Version history and rollback
+### Phase 2: Enhanced Form Building
+- Section layout management
+- Advanced element types
+- Rich text editing
+- Enhanced theme customization
+- Form templates library
 
 ### Phase 3: Advanced Features
 - Conditional logic and workflows
 - Payment integration
 - File uploads and management
 - Form templates and duplicating
+- Advanced validation rules
 
 ### Phase 4: AI and Optimization
 - AI-powered form suggestions
 - Completion rate optimization
 - A/B testing capabilities
 - User behavior analytics
+- Form scoring and calculations
 
 ### Phase 5: Integration Ecosystem
 - API for external access
@@ -468,80 +1099,6 @@ CREATE TABLE FormAnalytics (
 - Custom notification workflows
 - Advanced theming options
 - Custom branding control
-
-## Database Evolution Plan
-
-The existing database schema is designed to support progressive enhancement without major restructuring. Future features will be implemented through:
-
-### Phase 5-6 Additions
-```sql
--- For Custom API endpoints
-CREATE TABLE ApiKeys (
-    Id UUID PRIMARY KEY,
-    UserId UUID NOT NULL REFERENCES Users(Id),
-    FormId UUID REFERENCES Forms(Id), -- NULL means all forms
-    Name VARCHAR(255) NOT NULL,
-    Key VARCHAR(255) NOT NULL UNIQUE,
-    Permissions JSONB NOT NULL,
-    CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    LastUsedAt TIMESTAMP
-);
-
--- For Enterprise SSO
-ALTER TABLE Users ADD COLUMN SsoProvider VARCHAR(50);
-ALTER TABLE Users ADD COLUMN SsoIdentifier VARCHAR(255);
-
-CREATE TABLE SsoConfigurations (
-    Id UUID PRIMARY KEY,
-    TeamId UUID NOT NULL REFERENCES Teams(Id),
-    Provider VARCHAR(50) NOT NULL,
-    Configuration JSONB NOT NULL,
-    CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UpdatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
--- For GDPR compliance
-ALTER TABLE Forms ADD COLUMN DataRetentionDays INTEGER;
-ALTER TABLE FormElements ADD COLUMN ContainsPII BOOLEAN DEFAULT FALSE;
-
-CREATE TABLE DataDeletionRequests (
-    Id UUID PRIMARY KEY,
-    SubmissionId UUID REFERENCES FormSubmissions(Id),
-    RequestedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    Status VARCHAR(50) DEFAULT 'pending',
-    CompletedAt TIMESTAMP,
-    RequestorIdentifier VARCHAR(255) NOT NULL
-);
-```
-
-### Phase 7-8 Additions
-```sql
--- For Localization support
-CREATE TABLE ElementTranslations (
-    Id UUID PRIMARY KEY,
-    ElementId UUID NOT NULL REFERENCES FormElements(Id),
-    LanguageCode VARCHAR(10) NOT NULL,
-    TranslatedLabel TEXT,
-    TranslatedHelpText TEXT,
-    CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UpdatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT UQ_ElementTranslations UNIQUE (ElementId, LanguageCode)
-);
-
-ALTER TABLE Forms ADD COLUMN DefaultLanguage VARCHAR(10) DEFAULT 'en';
-ALTER TABLE Forms ADD COLUMN SupportedLanguages JSONB;
-
--- For Custom notification workflows
-CREATE TABLE NotificationWorkflows (
-    Id UUID PRIMARY KEY,
-    FormId UUID NOT NULL REFERENCES Forms(Id),
-    Name VARCHAR(255) NOT NULL,
-    Triggers JSONB NOT NULL, -- Event types that trigger this workflow
-    Actions JSONB NOT NULL, -- Actions to take (email, webhook, etc.)
-    CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UpdatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-```
 
 ## Development Guidelines
 

@@ -1,0 +1,21 @@
+FROM node:20-slim
+
+WORKDIR /app
+
+# Install dependencies only when needed
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+# Set environment variables
+ENV NODE_ENV=development
+ENV PORT=3000
+
+# Add development tools
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]

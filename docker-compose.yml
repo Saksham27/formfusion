@@ -1,11 +1,179 @@
 version: '3.8'
 
 services:
-  dev:
-    build: .
+  # Frontend Service (Next.js)
+  frontend:
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile.frontend
+    image: node:18-alpine  # Added base image
+    working_dir: /app      # Added working directory
+    command: tail -f /dev/null  # Keep container running
     volumes:
-      - .:/app
-      - /app/node_modules
+      - ./frontend:/app
+      - frontend-node-modules:/app/node_modules
     ports:
       - "3000:3000"
-    command: tail -f /dev/null  # Keep container running 
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+    depends_on:
+      - backend
+    networks:
+      - formfusion-network
+
+  # Backend Service (.NET)
+  backend:
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile.backend
+    image: mcr.microsoft.com/dotnet/sdk:8.0  # Added base image
+    working_dir: /app                        # Added working directory
+    command: tail -f /dev/null  # Keep container running
+    volumes:
+      - ./backend:/app
+      - /app/bin
+      - /app/obj
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=formfusion;Username=postgres;Password=postgres
+      - RedisConnection=redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - formfusion-network
+
+  # Realtime Collaboration Service (Go)
+  realtime:
+    # build:
+    #   context: ./microservices/realtime
+    #   dockerfile: Dockerfile.go
+    image: golang:1.20-alpine  # Added base image
+    working_dir: /app          # Added working directory
+    command: tail -f /dev/null  # Keep container running
+    volumes:
+      - ./microservices/realtime:/app
+    ports:
+      - "8080:8080"
+    environment:
+      - ENV=development
+      - POSTGRES_DSN=postgres://postgres:postgres@postgres:5432/formfusion
+      - REDIS_ADDR=redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - formfusion-network
+
+  # PDF Generation Service (Go)
+  pdf-service:
+    # build:
+    #   context: ./microservices/pdf-service
+    #   dockerfile: Dockerfile.go
+    image: golang:1.20-alpine  # Added base image
+    working_dir: /app          # Added working directory
+    command: tail -f /dev/null  # Keep container running
+    volumes:
+      - ./microservices/pdf-service:/app
+    ports:
+      - "8081:8080"
+    environment:
+      - ENV=development
+      - POSTGRES_DSN=postgres://postgres:postgres@postgres:5432/formfusion
+      - REDIS_ADDR=redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - formfusion-network
+
+  # Analytics Service (Go)
+  analytics:
+    # build:
+    #   context: ./microservices/analytics
+    #   dockerfile: Dockerfile.go
+    image: golang:1.20-alpine  # Added base image
+    working_dir: /app          # Added working directory
+    command: tail -f /dev/null  # Keep container running
+    volumes:
+      - ./microservices/analytics:/app
+    ports:
+      - "8082:8080"
+    environment:
+      - ENV=development
+      - POSTGRES_DSN=postgres://postgres:postgres@postgres:5432/formfusion
+      - REDIS_ADDR=redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - formfusion-network
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=formfusion
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      # - ./database/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - formfusion-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - formfusion-network
+
+  # PgAdmin (for database management)
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@formfusion.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - formfusion-network
+
+volumes:
+  postgres-data:
+  redis-data:
+  frontend-node-modules:
+
+networks:
+  formfusion-network:
+    driver: bridge
